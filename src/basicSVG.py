@@ -1,7 +1,3 @@
-from json.tool import main
-from tkinter.ttk import Style
-from turtle import shapesize
-
 
 class basicSVG:
     #basic properties
@@ -52,6 +48,7 @@ class basicSVG:
         
         f = open(self.name, "w")
         f.write(self.themain)
+        print(self.themain)
         f.close()
 
 
@@ -107,7 +104,6 @@ class basicSVG:
                         fill-opacity:{fillOpacity};
                         stroke-opacity:{strokeOpacity}" 
                     />'''
-        print(color)
         R=color[0]
         G=color[1]
         B=color[2]
@@ -126,4 +122,64 @@ class basicSVG:
             strokeOpacity=self.__strokeOpacity
         )
         self.content+=mainRect
+
+
+    def circle(self,x,y,radius,color):
+        #this is the main string svg code of rectangle
+        mainCircle='''<circle
+                        x="{x}"
+                        y="{y}" 
+                        radius="{radius}"
+                        style="fill:rgb({R},{G},{B});
+                        stroke:{stroke};
+                        stroke-width:{strokeWidth};
+                        fill-opacity:{fillOpacity};
+                        stroke-opacity:{strokeOpacity}" 
+                    />'''
+        R=color[0]
+        G=color[1]
+        B=color[2]
+        mainCircle=mainCircle.format(
+            x=x,
+            y=y,
+            radius=radius,
+            R=R,
+            G=G,
+            B=B,
+            stroke=self.__strokeColor,
+            strokeWidth=self.__strokeWidth,
+            fillOpacity=self.__shapeOpacity,
+            strokeOpacity=self.__strokeOpacity
+        )
+        self.content+=mainCircle
+
+
+    def line(self,pos1,pos2):
+            #this is the main string svg code of rectangle
+            mainLine='''<line 
+                            x1="{x1}"
+                            y1="{y1}" 
+                            x2="{x2}"
+                            y2="{y2}"
+                            style="stroke:{stroke};
+                            stroke-width:{strokeWidth};
+                            fill-opacity:{fillOpacity};
+                            stroke-opacity:{strokeOpacity}" 
+                        />'''
+
+            mainLine=mainLine.format(
+                x1=pos1[0],
+                y1=pos1[1],
+                x2=pos2[0],
+                y2=pos2[1],
+                stroke=self.__strokeColor,
+                strokeWidth=self.__strokeWidth,
+                fillOpacity=self.__shapeOpacity,
+                strokeOpacity=self.__strokeOpacity
+            )
+            
+            self.content+=mainLine
+            
+
+
 
