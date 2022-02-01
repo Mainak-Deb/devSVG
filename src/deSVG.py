@@ -1,9 +1,9 @@
 
-class basicSVG:
+class deSVG:
     #basic properties
-    name="newsvg"
+    name="newsvg.svg"
     height=100;
-    height=100;
+    width=100;
     fill="white";
     style="background-color:rgb(255,255,255)"
 
@@ -20,7 +20,7 @@ class basicSVG:
 
 
     #this is the main content
-    content=''''''
+    content=''' '''
 
     #this is the svg file main template
     themain='''
@@ -44,17 +44,12 @@ class basicSVG:
             content=self.content,
             style=self.style
         )
-        self.themain=' '.join(self.themain.split())
+        #self.themain=' '.join(self.themain.split())
         
         f = open(self.name, "w")
         f.write(self.themain)
-        print(self.themain)
+        #print(self.themain)
         f.close()
-
-
-
-
-
 
 
 
@@ -127,9 +122,9 @@ class basicSVG:
     def circle(self,x,y,radius,color):
         #this is the main string svg code of rectangle
         mainCircle='''<circle
-                        x="{x}"
-                        y="{y}" 
-                        radius="{radius}"
+                        cx="{x}"
+                        cy="{y}" 
+                        r="{radius}"
                         style="fill:rgb({R},{G},{B});
                         stroke:{stroke};
                         stroke-width:{strokeWidth};

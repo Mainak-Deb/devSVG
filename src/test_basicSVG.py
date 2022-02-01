@@ -1,7 +1,7 @@
-from basicSVG import basicSVG
+from deSVG import deSVG
 
 if __name__== "__main__":
-    a=basicSVG("folds",400,400)
+    a=deSVG("folds",400,400)
     a.setBackground((0,255,255))
 
     a.setStrokeWidth(5)
